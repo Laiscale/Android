@@ -16,3 +16,4 @@ rootProject.name = "Integrated Design"
 include ':app'
 include ':common'
 include ':profile'
+include ':release'

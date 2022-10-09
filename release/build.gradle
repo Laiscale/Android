@@ -1,16 +1,17 @@
-
 plugins {
     id 'com.android.library'
 }
 
 android {
-    namespace 'com.example.common'
+    namespace 'com.example.release'
     compileSdk 32
 
     defaultConfig {
-//        applicationId "com.example.common"
+//        applicationId "com.example.release"
         minSdk 21
         targetSdk 32
+        versionCode 1
+        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,13 +27,9 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-def retrofitVersion = "2.9.0"
-
 
 dependencies {
-    // retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation project(':common')
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
