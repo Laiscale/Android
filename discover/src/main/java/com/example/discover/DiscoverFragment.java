@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
+import java.nio.channels.ClosedByInterruptException;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link DiscoverFragment#newInstance} factory method to
@@ -47,6 +49,8 @@ public class DiscoverFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        //super.onCreate(savedInstanceState);
+        getLifecycle();
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
