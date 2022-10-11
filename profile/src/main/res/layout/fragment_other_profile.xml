@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ProfileFragment">
+    tools:context=".OtherProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -24,7 +24,15 @@
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_baseline_menu_24"
+                    android:layout_marginTop="14dp"
+                    android:src="@drawable/ic_baseline_arrow_back_grey"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_baseline_more_vert_24"
                     android:layout_marginEnd="30dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -32,52 +40,44 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <ImageView
+                android:id="@+id/imageAvater"
+                android:layout_width="94dp"
+                android:layout_height="94dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/image_avater_bg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/userMessage"
-                android:layout_width="match_parent"
-                android:layout_height="94dp"
-                app:layout_constraintTop_toBottomOf="@id/setList">
-                <ImageView
-                    android:id="@+id/imageAvater"
-                    android:layout_width="94dp"
-                    android:layout_height="94dp"
-                    android:background="@drawable/image_avater_bg"
-                    android:layout_marginStart="40dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/imageAvater"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
                 <TextView
                     android:id="@+id/userName"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Umbrella"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:layout_marginTop="10dp"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageAvater"
+                    android:gravity="center"
                     android:layout_marginStart="20dp"/>
-                <TextView
-                    android:id="@+id/userId"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="id："
-                    android:textSize="12sp"
-                    android:textColor="@color/lightWhite"
-                    app:layout_constraintTop_toBottomOf="@+id/userName"
-                    app:layout_constraintStart_toEndOf="@+id/imageAvater"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="4dp"/>
-                <TextView
-                    android:id="@+id/userIdContext"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="20201008"
-                    android:textSize="12sp"
-                    android:textColor="@color/lightWhite"
-                    app:layout_constraintTop_toBottomOf="@+id/userName"
-                    app:layout_constraintStart_toEndOf="@+id/userId"
-                    android:layout_marginTop="4dp"/>
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="16dp"
+                    android:background="@drawable/sex_bg"
+                    app:layout_constraintTop_toTopOf="@+id/userName"
+                    app:layout_constraintBottom_toBottomOf="@+id/userName"
+                    app:layout_constraintStart_toEndOf="@id/userName"
+                    android:layout_marginStart="10dp"
+                    android:padding="2dp"
+                    android:src="@drawable/boy"/>
                 <!--                <ImageView-->
                 <!--                    android:layout_width="32dp"-->
                 <!--                    android:layout_height="16dp"-->
@@ -88,17 +88,34 @@
                 <!--                    android:layout_marginTop="8dp"-->
                 <!--                    android:padding="2dp"-->
                 <!--                    android:src="@drawable/girl"/>-->
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="16dp"
-                    android:background="@drawable/sex_bg"
-                    app:layout_constraintTop_toBottomOf="@+id/userId"
-                    app:layout_constraintStart_toEndOf="@id/imageAvater"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="8dp"
-                    android:padding="2dp"
-                    android:src="@drawable/boy"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userMessage">
+                <TextView
+                    android:id="@+id/userId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="id："
+                    android:textSize="12sp"
+                    android:textColor="@color/lightWhite"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="4dp"/>
+                <TextView
+                    android:id="@+id/userIdContext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="20201008"
+                    android:textSize="12sp"
+                    android:textColor="@color/lightWhite"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/userId"
+                    android:layout_marginTop="4dp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
@@ -107,8 +124,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="这个人很懒，什么都没留下。(最多16个字)"
+                android:text="这个人很懒，什么都没留下。"
+                android:maxEms="16"
                 android:textSize="16sp"
+                android:gravity="center"
                 android:textColor="@color/white"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"/>
@@ -214,11 +233,11 @@
             android:layout_marginTop="-16dp"
             android:background="@drawable/list_card_bg">
             <LinearLayout
+                android:baselineAligned="false"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
-                android:baselineAligned="false"
+                android:paddingStart="80dp"
+                android:paddingEnd="80dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
@@ -228,7 +247,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="84dp"
                         android:layout_height="wrap_content">
                         <TextView
                             android:id="@+id/dynamic"
@@ -236,8 +255,9 @@
                             android:layout_height="wrap_content"
                             android:text="动态"
                             android:textSize="18sp"
-                            android:textColor="@color/lightBlack"
+                            android:textColor="#3da983"
                             android:gravity="center"
+                            android:background="@drawable/list_card_button_bg"
                             app:layout_constraintTop_toTopOf="parent"/>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
@@ -246,7 +266,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="84dp"
                         android:layout_height="wrap_content">
                         <TextView
                             android:id="@+id/collection"
@@ -254,29 +274,12 @@
                             android:layout_height="wrap_content"
                             android:text="收藏"
                             android:textSize="18sp"
-                            android:textColor="@color/lightBlack"
+                            android:textColor="#3da983"
                             android:gravity="center"
+                            android:background="@drawable/list_card_button_bg"
                             app:layout_constraintTop_toTopOf="parent"/>
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:id="@+id/praise"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="赞过"
-                            android:textSize="18sp"
-                            android:textColor="@color/lightBlack"
-                            android:gravity="center"
-                            app:layout_constraintTop_toTopOf="parent"/>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
             </LinearLayout>
 
