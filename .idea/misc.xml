@@ -5,6 +5,11 @@
       <map>
         <entry key="..\:/Android/Android Studio Project/Android/profile/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Android/Android Studio Project/Android/release/src/main/res/layout/fragment_release.xml" value="0.25364583333333335" />
+        <entry key="..\:/desktop/Android/discover/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/desktop/Android/discover/src/main/res/drawable-v24/unfocuson_bg.xml" value="0.1" />
+        <entry key="..\:/desktop/Android/discover/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.1" />
+        <entry key="..\:/desktop/Android/discover/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/desktop/Android/discover/src/main/res/layout/fragment_discover.xml" value="0.1" />
       </map>
     </option>
   </component>
