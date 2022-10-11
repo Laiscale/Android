@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MyChannelFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="24dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/my_channel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/myMoreChannel"
+                android:layout_width="360dp"
+                android:layout_height="64dp"
+                android:text="更多订阅"
+                android:textSize="20sp"
+                android:background="@drawable/my_channel_bg"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</FrameLayout>

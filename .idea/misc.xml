@@ -5,7 +5,11 @@
       <map>
         <entry key="..\:/Android/Android Studio Project/Android/profile/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Android/Android Studio Project/Android/release/src/main/res/layout/fragment_release.xml" value="0.25364583333333335" />
+        <entry key="..\:/Androidwork/Android/home/src/main/res/layout/comment_list_item.xml" value="0.18376068376068377" />
         <entry key="..\:/Androidwork/Android/home/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Androidwork/Android/home/src/main/res/layout/fragment_my_channel.xml" value="0.225" />
+        <entry key="..\:/Androidwork/Android/home/src/main/res/layout/fragment_pic_detail.xml" value="0.225" />
+        <entry key="..\:/Androidwork/Android/home/src/main/res/layout/pic_list_item.xml" value="0.22395833333333334" />
       </map>
     </option>
   </component>
