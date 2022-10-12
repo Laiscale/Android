@@ -6,6 +6,9 @@
         <entry key="..\:/Android/Android Studio Project/Android/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
         <entry key="..\:/Android/Android Studio Project/Android/profile/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Android/Android Studio Project/Android/release/src/main/res/layout/fragment_release.xml" value="0.25364583333333335" />
+        <entry key="..\:/Androidwork/Android/app/src/main/res/layout/fragment_login.xml" value="0.2390625" />
+        <entry key="..\:/Androidwork/Android/app/src/main/res/layout/fragment_register.xml" value="0.2390625" />
+        <entry key="..\:/Androidwork/Android/app/src/main/res/layout/fragment_resigter.xml" value="0.2390625" />
         <entry key="..\:/Androidwork/Android/discover/src/main/res/layout/fragment_discover.xml" value="0.1125" />
         <entry key="..\:/Androidwork/Android/home/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1155" />
         <entry key="..\:/Androidwork/Android/home/src/main/res/drawable/comment_bg.xml" value="0.1155" />
@@ -22,6 +25,7 @@
         <entry key="..\:/Androidwork/Android/home/src/main/res/drawable/my_channel_bg.xml" value="0.1155" />
         <entry key="..\:/Androidwork/Android/home/src/main/res/drawable/publish_button_bg.xml" value="0.1155" />
         <entry key="..\:/Androidwork/Android/home/src/main/res/drawable/unfocuson_bg.xml" value="0.1155" />
+        <entry key="..\:/Androidwork/Android/home/src/main/res/layout/comment_list_item.xml" value="0.1" />
         <entry key="..\:/Androidwork/Android/home/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Androidwork/Android/profile/src/main/res/layout/fragment_edit_data.xml" value="0.1125" />
       </map>
