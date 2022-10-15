@@ -1,6 +1,5 @@
 package com.example.integrateddesign;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -20,8 +19,6 @@ import com.example.release.ReleaseFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
