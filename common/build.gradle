@@ -11,6 +11,8 @@ android {
 //        applicationId "com.example.common"
         minSdk 21
         targetSdk 32
+        versionCode 1
+        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -31,8 +33,18 @@ def retrofitVersion = "2.9.0"
 
 dependencies {
     // retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    api("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    api("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+
+    // glide 图片加载
+    api('com.github.bumptech.glide:glide:4.13.2')
+    api('com.github.bumptech.glide:compiler:4.13.2')
+
+    api('io.github.scwang90:refresh-layout-kernel:2.0.5')      //核心必须依赖
+    api('io.github.scwang90:refresh-footer-classics:2.0.5')    //经典加载
+    api('io.github.scwang90:refresh-header-classics:2.0.5')    //经典刷新头
+
+
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
