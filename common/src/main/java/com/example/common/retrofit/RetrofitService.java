@@ -42,7 +42,7 @@ public interface RetrofitService {
     Call<RetrofitResponse<String>> addSecondComment(@Body SecondCommentBean secondCommentBean);
 
     @GET("/photo/focus")
-    Call<RetrofitResponse<ResponseData<PictureData>>> getPictureListOfCurrentSubscribed(@Query(value = "current") int current, @Query(value = "size") int size, @Query(value = "userId") int userId);
+    Call<RetrofitResponse<ResponseData<PictureData>>> getPictureListOfCurrentSubscribed(@Query(value = "current") int current, @Query(value = "size") int size, @Query(value = "userId") long userId);
 
     @POST("/photo/focus")
     Call<RetrofitResponse<String>> subscribedUser(@Query(value = "focusUserId") int focusUserId, @Query(value = "userId") int userId);
