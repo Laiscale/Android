@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#5baf90"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:gravity="center"
+            android:text="SIGN UP"
+            android:textSize="32sp"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="用户名"
+            android:textColorHint="#8acbb3"
+            android:textSize="24sp"
+            android:textColor="#91d2ba"
+            android:gravity="center_vertical"
+            android:background="@drawable/input_bg"
+            android:paddingStart="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"/>
+
+        <EditText
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="输入密码"
+            android:textColorHint="#8acbb3"
+            android:textSize="24sp"
+            android:textColor="#8acbb3"
+            android:gravity="center_vertical"
+            android:background="@drawable/input_bg"
+            android:layout_marginTop="25dp"
+            android:paddingStart="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"/>
+
+        <EditText
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="确认密码"
+            android:textColorHint="#8acbb3"
+            android:textSize="24sp"
+            android:textColor="#8acbb3"
+            android:gravity="center_vertical"
+            android:background="@drawable/input_bg"
+            android:layout_marginTop="25dp"
+            android:paddingStart="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="bottom">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="登录"
+                android:textColor="#4fad89"
+                android:textSize="28dp"
+                android:background="@drawable/login_button_bg"
+                android:gravity="center"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="注册"
+                android:textColor="@color/white"
+                android:textSize="28dp"
+                android:background="@drawable/register_button_bg"
+                android:gravity="center"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="60dp"
+                android:layout_marginEnd="40dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

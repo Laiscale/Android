@@ -21,7 +21,7 @@ import retrofit2.http.Query;
 
 public interface RetrofitService {
     @GET("/photo/collect")
-    Call<RetrofitResponse<ResponseData<PictureData>>> getPictureListOfCurrentFavorite(@Query(value = "current") int current, @Query(value = "size") int size, @Query(value = "userId") int userId);
+    Call<RetrofitResponse<ResponseData<PictureData>>> getPictureListOfCurrentFavorite(@Query(value = "current") int current, @Query(value = "size") int size, @Query(value = "userId") long userId);
 
     @POST("/photo/collect")
     Call<RetrofitResponse<String>> favoritePicture(@Query(value = "shareId") int shareId, @Query(value = "userId") int userId);
