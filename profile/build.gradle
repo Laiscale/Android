@@ -5,13 +5,17 @@ plugins {
 android {
     namespace 'com.example.profile'
     compileSdk 32
+
     viewBinding{
         enabled = true
     }
+
     defaultConfig {
 //        applicationId "com.example.profile"
         minSdk 21
         targetSdk 32
+        versionCode 1
+        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
