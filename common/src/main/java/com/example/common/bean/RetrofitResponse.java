@@ -1,7 +1,7 @@
 package com.example.common.bean;
 
 public class RetrofitResponse<T> {
-    String msg;
-    int code;
-    T data;
+    public String msg;
+    public int code;
+    public T data;
 }

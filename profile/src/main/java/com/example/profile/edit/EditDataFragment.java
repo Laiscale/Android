@@ -1,7 +1,16 @@
 package com.example.profile.edit;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.ImageDecoder;
+import android.net.Uri;
+import android.os.Binder;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -12,12 +21,18 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.example.common.MyApp;
+import com.example.common.bean.ImageUploadData;
 import com.example.common.bean.RetrofitResponse;
 import com.example.common.bean.UserBean;
+import com.example.common.bean.UserUpdateData;
 import com.example.common.constants.HttpConstants;
 import com.example.common.util.FragmentStackUtil;
 import com.example.common.util.MyToast;
+import com.example.common.util.UriTofilePath;
+import com.example.profile.R;
 import com.example.profile.databinding.FragmentEditDataBinding;
+
+import java.io.IOException;
 
 public class EditDataFragment extends Fragment {
     private FragmentEditDataBinding viewBinding;
@@ -66,7 +81,6 @@ public class EditDataFragment extends Fragment {
                 if (!viewBinding.introduce.getText().toString().isEmpty()) introduce = viewBinding.introduce.getText().toString();
                 if (!viewBinding.username.getText().toString().isEmpty()) username = viewBinding.username.getText().toString();
                 String sex = viewBinding.sex.getText().toString();
-                int sexNum = MyApp.getUserBean().sex;
                 if (sex.equals("男")) sexNum = 0;
                 else if (sex.equals("女")) sexNum = 1;
                 viewModel.saveUserInfo(MyApp.getUserBean().avatar, MyApp.getUserBean().id, introduce, sexNum, username);
@@ -94,6 +108,48 @@ public class EditDataFragment extends Fragment {
                 }else {
                     MyToast.ShowToast(requireContext(), stringRetrofitResponse.msg);
                 }
+            }
+        });
+
+        // 观测头像上传结果
+        viewModel.uploadData.observe(getViewLifecycleOwner(), new Observer<RetrofitResponse<ImageUploadData>>() {
+            @Override
+            public void onChanged(RetrofitResponse<ImageUploadData> imageUploadDataRetrofitResponse) {
+                if (imageUploadDataRetrofitResponse.code == HttpConstants.SUCCESS_STATUS && !imageUploadDataRetrofitResponse.data.imageUrlList.isEmpty()){
+                    MyApp.getUserBean().avatar = imageUploadDataRetrofitResponse.data.imageUrlList.get(0);
+                }else {
+                    MyToast.ShowToast(requireContext(), imageUploadDataRetrofitResponse.msg);
+                }
+            }
+        });
+
+        // 相册
+        ActivityResultLauncher<String> stringActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+            @Override
+            public void onActivityResult(Uri result) {
+                Bitmap bitmap;
+                // 防止未选图片返回时闪退
+                if (result == null) return;
+                // 本地显示
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    try {
+                        bitmap = ImageDecoder.decodeBitmap(ImageDecoder.createSource(requireActivity().getContentResolver(), result));
+                        viewBinding.imageAvatar.setImageBitmap(bitmap);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                // 上传到网络
+                String imagePath = UriTofilePath.getFileAbsolutePath(requireContext(), result);
+                viewModel.uploadAvatar(imagePath);
+            }
+        });
+
+        // 监听头像上传按钮
+        viewBinding.imageAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stringActivityResultLauncher.launch("image/*");
             }
         });
 
