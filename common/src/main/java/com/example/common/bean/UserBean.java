@@ -3,11 +3,23 @@ package com.example.common.bean;
 public class UserBean {
     public String appKey;
     public String avatar;
-    public int createTime;
-    public int id;
+    public long createTime;
+    public long id;
     public String introduce;
-    public int lastUpdateTime;
+    public long lastUpdateTime;
     public String password;
     public int sex;
     public String username;
+
+    public UserBean(String appKey, String avatar, long createTime, long id, String introduce, long lastUpdateTime, String password, int sex, String username) {
+        this.appKey = appKey;
+        this.avatar = avatar;
+        this.createTime = createTime;
+        this.id = id;
+        this.introduce = introduce;
+        this.lastUpdateTime = lastUpdateTime;
+        this.password = password;
+        this.sex = sex;
+        this.username = username;
+    }
 }

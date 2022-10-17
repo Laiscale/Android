@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.example.common.MyApp;
 import com.example.common.bean.RetrofitResponse;
 import com.example.common.bean.UserBean;
 import com.example.common.constants.HttpConstants;
