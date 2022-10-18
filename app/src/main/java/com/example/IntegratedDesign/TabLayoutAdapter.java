@@ -1,12 +1,10 @@
-package com.example.integrateddesign;
+package com.example.IntegratedDesign;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-
-import java.util.List;
 
 public class TabLayoutAdapter extends FragmentStateAdapter {
     private Fragment[] fragments;

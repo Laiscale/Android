@@ -1,27 +1,22 @@
-package com.example.integrateddesign;
+package com.example.IntegratedDesign;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import com.example.IntegratedDesign.databinding.FragmentLoginBinding;
 import com.example.common.MyApp;
 import com.example.common.bean.RetrofitResponse;
 import com.example.common.bean.UserBean;
 import com.example.common.constants.HttpConstants;
 import com.example.common.util.FragmentStackUtil;
 import com.example.common.util.MyToast;
-import com.example.picshare.databinding.FragmentLoginBinding;
-
-import java.util.Objects;
 
 public class LoginFragment extends Fragment {
     private FragmentLoginBinding viewBinding;

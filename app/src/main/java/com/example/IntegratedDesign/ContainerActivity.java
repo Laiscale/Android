@@ -1,13 +1,12 @@
-package com.example.picshare;
+package com.example.IntegratedDesign;
 
 import android.os.Bundle;
 
+import com.example.IntegratedDesign.databinding.ActivityContainerBinding;
 import com.example.common.util.ActivityUtil;
 import com.example.common.util.FragmentStackUtil;
-import com.example.integrateddesign.LoginFragment;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.picshare.databinding.ActivityContainerBinding;
 
 public class ContainerActivity extends AppCompatActivity {
     private ActivityContainerBinding viewBinding;

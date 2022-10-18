@@ -1,4 +1,4 @@
-package com.example.integrateddesign;
+package com.example.IntegratedDesign;
 
 import android.content.Context;
 

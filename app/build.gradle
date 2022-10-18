@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.picshare'
+    namespace 'com.example.IntegratedDesign'
     compileSdk 32
 
     viewBinding{
@@ -11,7 +11,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.picshare"
+        applicationId "com.example.IntegratedDesign"
         minSdk 21
         targetSdk 32
         versionCode 1
