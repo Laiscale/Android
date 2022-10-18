@@ -1,4 +1,4 @@
-package com.example.picshare.login;
+package com.example.integrateddesign;
 
 import android.os.Bundle;
 

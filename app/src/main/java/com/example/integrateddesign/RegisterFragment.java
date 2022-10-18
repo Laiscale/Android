@@ -1,4 +1,4 @@
-package com.example.picshare.register;
+package com.example.integrateddesign;
 
 import android.os.Bundle;
 
@@ -17,8 +17,6 @@ import com.example.common.bean.RetrofitResponse;
 import com.example.common.constants.HttpConstants;
 import com.example.common.util.FragmentStackUtil;
 import com.example.common.util.MyToast;
-import com.example.picshare.MainFragment;
-import com.example.picshare.R;
 import com.example.picshare.databinding.FragmentRegisterBinding;
 
 public class RegisterFragment extends Fragment {

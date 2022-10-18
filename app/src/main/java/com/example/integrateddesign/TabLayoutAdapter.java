@@ -1,4 +1,4 @@
-package com.example.picshare;
+package com.example.integrateddesign;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

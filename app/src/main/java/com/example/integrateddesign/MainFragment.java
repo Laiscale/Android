@@ -1,4 +1,4 @@
-package com.example.picshare;
+package com.example.integrateddesign;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -17,6 +17,7 @@ import com.example.common.base.BaseFragment;
 import com.example.common.util.FragmentStackUtil;
 import com.example.discover.DiscoverFragment;
 import com.example.home.HomeFragment;
+import com.example.picshare.R;
 import com.example.picshare.databinding.FragmentMainBinding;
 import com.example.profile.ProfileFragment;
 import com.example.release.ReleaseFragment;

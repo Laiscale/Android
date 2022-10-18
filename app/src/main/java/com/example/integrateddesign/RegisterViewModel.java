@@ -1,4 +1,4 @@
-package com.example.picshare.register;
+package com.example.integrateddesign;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
