@@ -36,14 +36,13 @@ public class ImageListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = LayoutInflater.from(convertView.getContext()).inflate(R.layout.layout_image_item, parent, false);
         ImageView imageView = (ImageView)view.findViewById(R.id.image_added);
-        Glide.with(convertView.getContext()).load(imageList.get(position)).into(imageView);
-
-//        if (!imageList.get(position).equals("emptyUrl")){
-//            Glide.with(convertView.getContext()).load(imageList.get(position)).into(imageView);
-//        }else {
-//            imageView.setImageResource(R.drawable.add);
-//            imageView.setBackgroundResource(R.drawable.add_picture_bg);
-//        }
+        if (!imageList.get(position).equals("EmptyUrl")){
+            Glide.with(convertView.getContext()).load(imageList.get(position)).into(imageView);
+        }else {
+            // 如果是无效的URL，就显示添加图标
+            imageView.setImageResource(R.drawable.add);
+            imageView.setBackgroundResource(R.drawable.add_picture_bg);
+        }
         return view;
     }
 }

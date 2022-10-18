@@ -1,12 +1,11 @@
 package com.example.profile.save;
 
-package com.example.profile.save;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.common.bean.PictureBean;
 import com.example.common.bean.PictureData;
 import com.example.common.bean.ResponseData;
 import com.example.common.bean.RetrofitResponse;
@@ -20,6 +19,9 @@ public class SaveViewModel extends ViewModel {
     private RetrofitService retrofitService;
     private MutableLiveData<ResponseData<PictureData>> _savePicList = new MutableLiveData<>();
     public LiveData<ResponseData<PictureData>> savePicList = _savePicList;
+
+    private MutableLiveData<RetrofitResponse<String>> _changeRes = new MutableLiveData<>();
+    public LiveData<RetrofitResponse<String>> changeRes = _changeRes;
 
     private boolean hasMore = false;
     private int currentPage = 0;
@@ -46,6 +48,27 @@ public class SaveViewModel extends ViewModel {
 
             @Override
             public void onFailure(@NonNull Call<RetrofitResponse<ResponseData<PictureData>>> call, @NonNull Throwable t) {
+
+            }
+        });
+    }
+
+    public void changToShare(String content, long saveId, long imageCode, long pUserId, String title){
+        PictureBean pictureBean = new PictureBean(
+                content,
+                saveId,
+                imageCode,
+                pUserId,
+                title
+        );
+        retrofitService.changePictureToShare(pictureBean).enqueue(new Callback<RetrofitResponse<String>>() {
+            @Override
+            public void onResponse(@NonNull Call<RetrofitResponse<String>> call, @NonNull Response<RetrofitResponse<String>> response) {
+                _changeRes.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<RetrofitResponse<String>> call, @NonNull Throwable t) {
 
             }
         });

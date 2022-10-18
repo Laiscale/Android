@@ -20,6 +20,9 @@ public class ShareViewModel  extends ViewModel {
     private MutableLiveData<ResponseData<PictureData>> _sharePicList = new MutableLiveData<>();
     public LiveData<ResponseData<PictureData>> sharePicList = _sharePicList;
 
+    private MutableLiveData<RetrofitResponse<String>> _deleteRes = new MutableLiveData<>();
+    public LiveData<RetrofitResponse<String>> deleteRes = _deleteRes;
+
     private boolean hasMore = false;
     private int currentPage = 0;
     private int size = 0;
@@ -45,6 +48,20 @@ public class ShareViewModel  extends ViewModel {
 
             @Override
             public void onFailure(@NonNull Call<RetrofitResponse<ResponseData<PictureData>>> call, @NonNull Throwable t) {
+
+            }
+        });
+    }
+
+    public void deleteShare(long shareId, long userId){
+        retrofitService.deletePicture(shareId, userId).enqueue(new Callback<RetrofitResponse<String>>() {
+            @Override
+            public void onResponse(@NonNull Call<RetrofitResponse<String>> call, @NonNull Response<RetrofitResponse<String>> response) {
+                _deleteRes.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<RetrofitResponse<String>> call, @NonNull Throwable t) {
 
             }
         });
