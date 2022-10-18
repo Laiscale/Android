@@ -85,7 +85,7 @@ public class PicDetailsViewModel extends ViewModel {
         });
     }
 
-    public void releaseComment(String content, long shareId, long userId, String username){
+    public void                                                                                                                                                                                                                                                           releaseComment(String content, long shareId, long userId, String username){
         FirstCommentBean firstCommentBean = new FirstCommentBean(
                 content,
                 shareId,
