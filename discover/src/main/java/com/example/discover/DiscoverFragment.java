@@ -51,7 +51,7 @@ public class DiscoverFragment extends Fragment {
         // 定义瀑布布局
         viewBinding.discoverRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         viewModel.getDiscoverPicList(1, 10, MyApp.getUserBean().id);
-
+        //刷新界面
         viewBinding.smartRefresh.setEnableAutoLoadMore(true);
         viewBinding.smartRefresh.setRefreshHeader(new ClassicsHeader(requireContext()));
         viewBinding.smartRefresh.setRefreshFooter(new ClassicsFooter(requireContext()));
@@ -59,12 +59,8 @@ public class DiscoverFragment extends Fragment {
         viewBinding.smartRefresh.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                if (viewModel.getHasMore()){
-                    viewModel.getDiscoverPicList(viewModel.getCurrentPage() + 1, 10, MyApp.getUserBean().id);
-                }else {
-                    // 如果没有更多，停止加载动画
-                    viewBinding.smartRefresh.finishRefresh();
-                }
+                viewModel.getDiscoverPicList(1, 10, MyApp.getUserBean().id);
+                viewBinding.smartRefresh.finishRefresh();
             }
         });
 
@@ -72,6 +68,7 @@ public class DiscoverFragment extends Fragment {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 if (viewModel.getHasMore()){
+                    //如果还有数据就取数据
                     viewModel.getDiscoverPicList(viewModel.getCurrentPage() + 1, 10, MyApp.getUserBean().id);
                 }else {
                     // 如果没有更多，停止加载动画
@@ -90,10 +87,14 @@ public class DiscoverFragment extends Fragment {
                 if (pictureDataResponseData == null) return;
                 if (!pictureDataResponseData.records.isEmpty()){
                     if (viewModel.getCurrentPage() == 1){
+                        //顶部下拉刷新内容列表
+                        int size = pictureDataList.size();
+                        pictureDataList.clear();
                         pictureDataList.addAll(0, pictureDataResponseData.records);
                         // 通知刷新
-                        recyclerViewAdapter.notifyItemRangeChanged(0, pictureDataResponseData.size);
+                        recyclerViewAdapter.notifyItemRangeChanged(0, size);
                     }else {
+                        //底部上拉继续渲染列表内内容
                         pictureDataList.addAll(pictureDataResponseData.records);
                         // 通知刷新
                         recyclerViewAdapter.notifyItemRangeChanged((viewModel.getCurrentPage() - 1) * 10, pictureDataResponseData.size);

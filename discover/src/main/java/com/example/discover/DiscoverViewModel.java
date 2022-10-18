@@ -28,7 +28,7 @@ public class DiscoverViewModel extends ViewModel {
     public DiscoverViewModel(){
         retrofitService = RetrofitClient.getRetrofitService();
     }
-
+    //从接口拿数据
     public void getDiscoverPicList(int current, int size, long userId){
         retrofitService.getPictureListOfShare(current, size, userId).enqueue(new Callback<RetrofitResponse<ResponseData<PictureData>>>() {
             @Override
