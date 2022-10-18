@@ -10,16 +10,19 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.common.MyApp;
 import com.example.common.R;
 import com.example.common.adapter.PicCommentRecyclerViewAdapter;
 import com.example.common.bean.CommentData;
 import com.example.common.bean.PictureData;
+import com.example.common.bean.ResponseData;
 import com.example.common.bean.RetrofitResponse;
 import com.example.common.constants.HttpConstants;
 import com.example.common.databinding.FragmentPicDetailsBinding;
@@ -39,7 +42,7 @@ import java.util.List;
 
 public class PicDetailsFragment extends Fragment {
     private FragmentPicDetailsBinding viewBinding;
-    private com.example.common.ui.details.PicDetailsViewModel viewModel;
+    private PicDetailsViewModel viewModel;
     private PictureData pictureData;
 
     private List<ImageView> imageViewList = new LinkedList<>();
@@ -74,7 +77,7 @@ public class PicDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         viewBinding = FragmentPicDetailsBinding.inflate(inflater, container, false);
-        viewModel = new ViewModelProvider(this).get(com.example.common.ui.details.PicDetailsViewModel.class);
+        viewModel = new ViewModelProvider(this).get(PicDetailsViewModel.class);
 
         // 获取详情
         viewModel.getPicDetails(pictureData.id, MyApp.getUserBean().id);

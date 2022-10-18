@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginFragment">
+    tools:context=".login.LoginFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,6 +20,7 @@
             android:textColor="@color/white" />
 
         <EditText
+            android:id="@+id/username_editText"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:hint="用户名"
@@ -33,6 +34,7 @@
             android:layout_marginEnd="40dp"/>
 
         <EditText
+            android:id="@+id/password_editText"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -47,17 +49,6 @@
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp"/>
 
-        <EditText
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="忘记密码？"
-            android:textSize="18sp"
-            android:textColor="@color/white"
-            android:theme="@style/myEditText"
-            android:layout_gravity="right"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="40dp"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -65,6 +56,7 @@
             android:orientation="vertical"
             android:gravity="bottom">
             <Button
+                android:id="@+id/login_button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="登录"
@@ -76,6 +68,7 @@
                 android:layout_marginEnd="40dp"/>
 
             <Button
+                android:id="@+id/register_button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="注册"

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterFragment">
+    tools:context=".register.RegisterFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,6 +20,7 @@
             android:textColor="@color/white" />
 
         <EditText
+            android:id="@+id/username_editText"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:hint="用户名"
@@ -33,6 +34,7 @@
             android:layout_marginEnd="40dp"/>
 
         <EditText
+            android:id="@+id/password_editText"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -48,6 +50,7 @@
             android:layout_marginEnd="40dp"/>
 
         <EditText
+            android:id="@+id/password_confirm_EditText"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -68,18 +71,10 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="bottom">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="登录"
-                android:textColor="#4fad89"
-                android:textSize="28dp"
-                android:background="@drawable/login_button_bg"
-                android:gravity="center"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="40dp"/>
 
-            <TextView
+
+            <Button
+                android:id="@+id/register_button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="注册"

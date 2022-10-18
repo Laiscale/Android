@@ -1,4 +1,4 @@
-package com.example.integrateddesign;
+package com.example.picshare.login;
 
 import android.util.Log;
 
@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
 import com.example.common.bean.RetrofitResponse;
 import com.example.common.bean.UserBean;
 import com.example.common.retrofit.RetrofitClient;

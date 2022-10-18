@@ -74,4 +74,3 @@ public class PicRecyclerViewAdapter extends RecyclerView.Adapter<PicRecyclerView
         }
     }
 }
-

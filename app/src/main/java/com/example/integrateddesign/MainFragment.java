@@ -1,21 +1,22 @@
-package com.example.integrateddesign;
+package com.example.picshare;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import com.example.common.base.BaseFragment;
 import com.example.common.util.FragmentStackUtil;
 import com.example.discover.DiscoverFragment;
 import com.example.home.HomeFragment;
-import com.example.picshare.R;
 import com.example.picshare.databinding.FragmentMainBinding;
 import com.example.profile.ProfileFragment;
 import com.example.release.ReleaseFragment;

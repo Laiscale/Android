@@ -1,64 +1,92 @@
-package com.example.integrateddesign;
+package com.example.picshare.login;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link LoginFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.common.MyApp;
+import com.example.common.bean.RetrofitResponse;
+import com.example.common.bean.UserBean;
+import com.example.common.constants.HttpConstants;
+import com.example.common.util.FragmentStackUtil;
+import com.example.common.util.MyToast;
+import com.example.picshare.MainFragment;
+import com.example.picshare.R;
+import com.example.picshare.databinding.FragmentLoginBinding;
+import com.example.picshare.register.RegisterFragment;
+
+import java.util.Objects;
+
 public class LoginFragment extends Fragment {
+    private FragmentLoginBinding viewBinding;
+    private LoginViewModel viewModel;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public LoginFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment LoginFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static LoginFragment newInstance(String param1, String param2) {
-        LoginFragment fragment = new LoginFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public static LoginFragment newInstance(){
+        return new LoginFragment();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        viewBinding = FragmentLoginBinding.inflate(inflater, container, false);
+        viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+
+        // 点击事件
+        viewBinding.loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = viewBinding.usernameEditText.getText().toString();
+                String password = viewBinding.passwordEditText.getText().toString();
+                if (username.isEmpty() || password.isEmpty()) {
+                    MyToast.ShowToast(requireActivity(), "username or password is empty");
+                    return;
+                }
+                viewModel.login(username, password);
+            }
+        });
+
+        viewBinding.registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 跳转到注册页面
+                FragmentStackUtil.addToMainFragment(requireActivity().getSupportFragmentManager(), RegisterFragment.newInstance(), "Register_Fragment_Tag", true, "Register_Fragment");
+            }
+        });
+
+        viewModel.loginRes.observe(getViewLifecycleOwner(), new Observer<RetrofitResponse<UserBean>>() {
+            @Override
+            public void onChanged(RetrofitResponse<UserBean> userBeanRetrofitResponse) {
+                if (userBeanRetrofitResponse.code == HttpConstants.SUCCESS_STATUS){
+                    // 如果成功
+                    MyApp.setUserBean(userBeanRetrofitResponse.data);
+                    MyToast.ShowToast(requireActivity(), "Login success!");
+                    FragmentStackUtil.addToMainFragment(requireActivity().getSupportFragmentManager(), MainFragment.newInstance(), "Main_Fragment_Tag", true, "Main_Fragment");
+                }else {
+                    MyToast.ShowToast(requireActivity(), userBeanRetrofitResponse.msg);
+                }
+            }
+        });
+
+        return viewBinding.getRoot();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        FragmentStackUtil.navBack();
     }
 }

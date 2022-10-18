@@ -24,4 +24,3 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
         return fragments.length;
     }
 }
-
