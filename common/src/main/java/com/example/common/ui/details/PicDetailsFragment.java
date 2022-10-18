@@ -2,10 +2,6 @@ package com.example.common.ui.details;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,6 +9,11 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager2.widget.ViewPager2;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.common.MyApp;
 import com.example.common.R;
@@ -38,7 +39,7 @@ import java.util.List;
 
 public class PicDetailsFragment extends Fragment {
     private FragmentPicDetailsBinding viewBinding;
-    private PicDetailsViewModel viewModel;
+    private com.example.common.ui.details.PicDetailsViewModel viewModel;
     private PictureData pictureData;
 
     private List<ImageView> imageViewList = new LinkedList<>();
@@ -73,7 +74,7 @@ public class PicDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         viewBinding = FragmentPicDetailsBinding.inflate(inflater, container, false);
-        viewModel = new ViewModelProvider(this).get(PicDetailsViewModel.class);
+        viewModel = new ViewModelProvider(this).get(com.example.common.ui.details.PicDetailsViewModel.class);
 
         // 获取详情
         viewModel.getPicDetails(pictureData.id, MyApp.getUserBean().id);

@@ -12,7 +12,10 @@ import com.example.common.retrofit.RetrofitClient;
 import com.example.common.retrofit.RetrofitService;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -68,12 +71,18 @@ public class ReleaseViewModel extends ViewModel {
 
     public void uploadImage(List<String> imagePathList){
         MultipartBody.Builder builder = new MultipartBody.Builder();
+        MultipartBody.Part part;
+
+        List<MultipartBody.Part> multipartBodyList = new LinkedList<>();
+
         for (int i = 0; i < imagePathList.size() - 1; i++){
             File file = new File(imagePathList.get(i));
-            RequestBody requestBody =RequestBody.create(MediaType.parse("application/json; charset=utf-8"), file);
-            builder.addFormDataPart("fileList", file.getName(), requestBody);
+            RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), file);
+            part = MultipartBody.Part.createFormData("fileList", file.getName(), requestBody);
+            multipartBodyList.add(part);
         }
-        retrofitService.uploadFile(builder.build()).enqueue(new Callback<RetrofitResponse<ImageUploadData>>() {
+
+        retrofitService.uploadFile(multipartBodyList).enqueue(new Callback<RetrofitResponse<ImageUploadData>>() {
             @Override
             public void onResponse(@NonNull Call<RetrofitResponse<ImageUploadData>> call, @NonNull Response<RetrofitResponse<ImageUploadData>> response) {
                 if (response.body() == null) return;

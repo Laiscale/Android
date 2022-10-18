@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+
 import java.util.List;
 
 public class ImageViewPagerAdapter extends RecyclerView.Adapter<ImageViewPagerAdapter.ViewPagerViewHolder> {
@@ -21,13 +22,13 @@ public class ImageViewPagerAdapter extends RecyclerView.Adapter<ImageViewPagerAd
 
     @NonNull
     @Override
-    public ViewPagerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ImageViewPagerAdapter.ViewPagerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(com.example.common.R.layout.layout_image_view_pager_item, parent, false);
         return new ViewPagerViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewPagerViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ImageViewPagerAdapter.ViewPagerViewHolder holder, int position) {
         // 加载图片
         Glide.with(holder.imageView.getContext()).load(imageViews.get(position)).into(holder.imageView);
     }

@@ -1,20 +1,21 @@
 package com.example.common.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class PictureData {
-   public int collectId;
+public class PictureData implements Serializable {
+   public long collectId;
    public int collectNum;
    public String content;
-   public int createTime;
-   public boolean hasCollect;
-   public boolean hasFocus;
-   public boolean hasLike;
-   public int id;
-   public int imageCode;
+   public long createTime;
+   public Boolean hasCollect;
+   public Boolean hasFocus;
+   public Boolean hasLike;
+   public long id;
+   public long imageCode;
    public int likeId;
    public int likeNum;
-   public int pUserId;
+   public long pUserId;
    public String title;
    public String username;
    public List<String> imageUrlList;

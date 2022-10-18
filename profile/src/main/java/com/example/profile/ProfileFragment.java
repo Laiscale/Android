@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.example.common.MyApp;
 import com.example.common.adapter.ViewPagerAdapter;
 import com.example.common.util.FragmentStackUtil;
 import com.example.profile.databinding.FragmentProfileBinding;
@@ -53,15 +54,7 @@ public class ProfileFragment extends Fragment {
         }).attach();
 
         // 显示个人信息
-        Glide.with(requireContext()).load(MyApp.getUserBean().avatar).into(viewBinding.imageAvater);
-        viewBinding.userName.setText(MyApp.getUserBean().username);
-        viewBinding.userId.setText(String.valueOf(MyApp.getUserBean().id));
-        viewBinding.individualitySignature.setText(MyApp.getUserBean().introduce);
-        if (MyApp.getUserBean().sex == 0){
-            viewBinding.sexImage.setImageResource(R.drawable.boy);
-        }else {
-            viewBinding.sexImage.setImageResource(R.drawable.girl);
-        }
+        displayUserInfo();
 
         // 监听编辑资料的按钮
         viewBinding.editUser.setOnClickListener(new View.OnClickListener() {
@@ -72,5 +65,25 @@ public class ProfileFragment extends Fragment {
             }
         });
         return viewBinding.getRoot();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        displayUserInfo();
+    }
+
+
+    private void displayUserInfo(){
+        Glide.with(requireContext()).load(MyApp.getUserBean().avatar).into(viewBinding.imageAvater);
+        viewBinding.userName.setText(MyApp.getUserBean().username);
+        viewBinding.userId.setText(String.valueOf(MyApp.getUserBean().id));
+        viewBinding.individualitySignature.setText(MyApp.getUserBean().introduce);
+        if (MyApp.getUserBean().sex == 0){
+            viewBinding.sexImage.setImageResource(R.drawable.boy);
+        }else {
+            viewBinding.sexImage.setImageResource(R.drawable.girl);
+        }
+        Glide.with(requireContext()).load(MyApp.getUserBean().avatar).into(viewBinding.imageAvater);
     }
 }

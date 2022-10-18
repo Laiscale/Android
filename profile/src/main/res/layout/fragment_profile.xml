@@ -50,7 +50,7 @@
                     android:layout_height="94dp"
                     app:layout_constraintTop_toBottomOf="@id/setList">
 
-                    <ImageView
+                    <com.example.common.ui.view.ZQImageViewRoundOval
                         android:id="@+id/imageAvater"
                         android:layout_width="94dp"
                         android:layout_height="94dp"

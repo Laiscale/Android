@@ -1,48 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ReleaseFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ReleaseFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/backButton"
             android:layout_width="match_parent"
-            android:layout_height="54dp"
+            android:layout_height="12dp"
             app:layout_constraintTop_toTopOf="parent">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
+                android:layout_marginStart="32dp"
+                android:visibility="gone"
                 android:src="@drawable/ic_baseline_arrow_back_ios_24"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginStart="32dp"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/addPic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
             android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:paddingTop="10dp"
             android:paddingBottom="20dp"
             app:layout_constraintTop_toBottomOf="@+id/backButton">
-            <ImageView
-                android:padding="16dp"
-                android:layout_width="100dp"
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/image_recycler_view"
+                android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:src="@drawable/add"
-                android:background="@drawable/add_picture_bg"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:orientation="horizontal"
+                android:padding="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
@@ -50,64 +57,68 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#d6d6d6"
-            app:layout_constraintTop_toBottomOf="@id/addPic"/>
+            app:layout_constraintTop_toBottomOf="@id/addPic" />
 
-        <TextView
+        <EditText
             android:id="@+id/shareTitle"
-            app:layout_constraintTop_toBottomOf="@id/divide1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="标题"
-            android:textSize="24sp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:paddingTop="12dp"
             android:paddingBottom="12dp"
-            android:paddingTop="12dp"/>
+            android:hint="标题"
+            android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@id/divide1" />
 
         <View
             android:id="@+id/divide2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#d6d6d6"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            app:layout_constraintTop_toBottomOf="@id/shareTitle"/>
+            android:background="#d6d6d6"
+            app:layout_constraintTop_toBottomOf="@id/shareTitle" />
 
-        <TextView
+        <EditText
             android:id="@+id/shareText"
-            app:layout_constraintTop_toBottomOf="@id/divide2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="编辑你的文本吧～"
-            android:textSize="20sp"
+            android:layout_height="320dp"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
+            android:gravity="top"
             android:paddingTop="10dp"
-            android:paddingBottom="10dp"/>
+            android:paddingBottom="10dp"
+            android:hint="编辑你的文本吧～"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/divide2" />
 
         <LinearLayout
             android:id="@+id/shareList"
             android:layout_width="match_parent"
             android:layout_height="104dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
             <LinearLayout
-                android:id="@+id/draft"
+                android:id="@+id/save_draft"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="vertical">
+
                 <ImageView
                     android:id="@+id/iv_draft"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:src="@drawable/draft"
+                    android:layout_gravity="center"
                     android:layout_marginTop="8dp"
-                    android:layout_gravity="center"/>
+                    android:src="@drawable/draft" />
+
                 <TextView
                     android:id="@+id/tv_draft"
                     android:layout_width="wrap_content"
@@ -115,26 +126,21 @@
                     android:paddingTop="4dp"
                     android:text="存入草稿"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_draft"/>
+                    app:layout_constraintTop_toBottomOf="@id/iv_draft" />
 
             </LinearLayout>
+            <!--                android:background="@drawable/publish_button_bg"-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <Button
+                android:id="@+id/share_button"
                 android:layout_width="0dp"
-                android:layout_weight="4"
                 android:layout_height="match_parent"
-                android:background="@drawable/publish_button_bg">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="发布"
-                    android:textSize="24sp"
-                    android:textColor="@color/white"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_weight="4"
+                android:layout_marginStart="16dp"
+                android:background="@color/lightGreen"
+                android:text="发布"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
         </LinearLayout>
 
