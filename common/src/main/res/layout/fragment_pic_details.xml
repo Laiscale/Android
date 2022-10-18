@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,260 +11,268 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <View
-                    android:id="@+id/topDivide"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grey"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cardBar"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    app:layout_constraintTop_toBottomOf="@id/topDivide">
-                    <ImageView
-                        android:id="@+id/nav_back"
-                        android:layout_width="28dp"
-                        android:layout_height="36dp"
-                        android:src="@drawable/ic_baseline_arrow_back_ios_24"
-                        android:layout_marginStart="8dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
-                    <ImageView
-                        android:id="@+id/detailUserAvater"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:layout_marginStart="36dp"
-                        android:layout_marginEnd="10dp"
-                        android:background="@drawable/detail_user_avater"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
-                    <TextView
-                        android:id="@+id/detailUserName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Umbrella"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:layout_marginStart="10dp"
-                        app:layout_constraintTop_toTopOf="@+id/detailUserAvater"
-                        app:layout_constraintStart_toEndOf="@+id/detailUserAvater"/>
-                    <TextView
-                        android:id="@+id/createTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="20-10-15"
-                        android:textSize="12sp"
-                        android:textColor="@color/grey"
-                        android:layout_marginStart="10dp"
-                        app:layout_constraintTop_toBottomOf="@+id/detailUserName"
-                        app:layout_constraintStart_toEndOf="@+id/detailUserAvater"/>
-                    <TextView
-                        android:id="@+id/focus_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:text="+ 关注"
-                        android:textSize="16sp"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
-                        android:paddingEnd="12dp"
-                        android:paddingStart="12dp"
-                        android:textColor="@color/lightGreen"
-                        android:background="@drawable/unfocuson_bg"
-                        android:layout_marginEnd="24dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/image_view_pager"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintHeight_max="480dp"
-                    android:minHeight="120dp"
-                    app:layout_constraintTop_toBottomOf="@+id/cardBar"
-                    app:layout_constraintBottom_toTopOf="@+id/featureList"
-                    />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/featureList"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    app:layout_constraintTop_toBottomOf="@id/image_view_pager">
-                    <ImageView
-                        android:id="@+id/favorite"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:scaleType="fitXY"
-                        android:layout_marginStart="24dp"
-                        android:src="@drawable/ic_baseline_favorite_border_24"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"/>
-                    <TextView
-                        android:id="@+id/favoriteNumber"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="666"
-                        android:textSize="20sp"
-                        android:layout_marginStart="4dp"
-                        app:layout_constraintStart_toEndOf="@+id/favorite"
-                        app:layout_constraintTop_toTopOf="@+id/favorite"
-                        app:layout_constraintBottom_toBottomOf="@+id/favorite"/>
-                    <ImageView
-                        android:id="@+id/collection"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:scaleType="fitXY"
-                        android:layout_marginStart="50dp"
-                        android:src="@drawable/ic_baseline_star_outline_24"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/favorite"/>
-                    <TextView
-                        android:id="@+id/collectionNumber"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="666"
-                        android:textSize="20sp"
-                        android:layout_marginStart="4dp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/collection"/>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <View
-                    android:id="@+id/divide"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    app:layout_constraintTop_toBottomOf="@+id/featureList"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@color/grey"/>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    app:layout_constraintTop_toBottomOf="@id/divide">
-                    <TextView
-                        android:id="@+id/describeTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="标题"
-                        android:textColor="@color/black"
-                        android:textSize="22sp"
-                        app:layout_constraintTop_toTopOf="parent"/>
-                    <TextView
-                        android:id="@+id/describeContent"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="4dp"
-                        android:text="描述性语言描述性语言描述性语言描述性语言描述性语言描述性语言描述性语言描述性语言描述性语言描述性语言描述性语言"
-                        app:layout_constraintTop_toBottomOf="@id/describeTitle"
-                        android:maxLines="2"
-                        android:ellipsize="end"/>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/grey"
-                android:layout_marginTop="8dp"
-                android:alpha="0.4"
-                android:layout_marginEnd="15dp"
-                android:layout_marginStart="15dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="评论"
-                android:textSize="18sp"
-                android:layout_marginStart="20dp"/>
+            android:layout_height="match_parent">
 
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/release_comment"
-                    android:layout_width="0dp"
-                    android:layout_weight="3"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:id="@+id/topDivide"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/grey"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cardBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        app:layout_constraintTop_toBottomOf="@id/topDivide">
+                        <ImageView
+                            android:id="@+id/nav_back"
+                            android:layout_width="28dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                            android:layout_marginStart="8dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+                        <ImageView
+                            android:id="@+id/detailUserAvater"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="36dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/detail_user_avater"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+                        <TextView
+                            android:id="@+id/detailUserName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Umbrella"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintTop_toTopOf="@+id/detailUserAvater"
+                            app:layout_constraintStart_toEndOf="@+id/detailUserAvater"/>
+                        <TextView
+                            android:id="@+id/createTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="20-10-15"
+                            android:textSize="12sp"
+                            android:textColor="@color/grey"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintTop_toBottomOf="@+id/detailUserName"
+                            app:layout_constraintStart_toEndOf="@+id/detailUserAvater"/>
+                        <TextView
+                            android:id="@+id/focus_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:text="+ 关注"
+                            android:textSize="16sp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:paddingEnd="12dp"
+                            android:paddingStart="12dp"
+                            android:textColor="@color/lightGreen"
+                            android:background="@drawable/unfocuson_bg"
+                            android:layout_marginEnd="24dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/image_view_pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintHeight_max="480dp"
+                        android:minHeight="120dp"
+                        app:layout_constraintTop_toBottomOf="@+id/cardBar"
+                        app:layout_constraintBottom_toTopOf="@+id/featureList"
+                        />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/featureList"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        app:layout_constraintTop_toBottomOf="@id/image_view_pager">
+                        <ImageView
+                            android:id="@+id/favorite"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:scaleType="fitXY"
+                            android:layout_marginStart="24dp"
+                            android:src="@drawable/ic_baseline_favorite_border_24"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+                        <TextView
+                            android:id="@+id/favoriteNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="666"
+                            android:textSize="20sp"
+                            android:layout_marginStart="4dp"
+                            app:layout_constraintStart_toEndOf="@+id/favorite"
+                            app:layout_constraintTop_toTopOf="@+id/favorite"
+                            app:layout_constraintBottom_toBottomOf="@+id/favorite"/>
+                        <ImageView
+                            android:id="@+id/collection"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:scaleType="fitXY"
+                            android:layout_marginStart="50dp"
+                            android:src="@drawable/ic_baseline_star_outline_24"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/favorite"/>
+                        <TextView
+                            android:id="@+id/collectionNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="666"
+                            android:textSize="20sp"
+                            android:layout_marginStart="4dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/collection"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:id="@+id/divide"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        app:layout_constraintTop_toBottomOf="@+id/featureList"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@color/grey"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        app:layout_constraintTop_toBottomOf="@id/divide">
+                        <TextView
+                            android:id="@+id/describeTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="标题"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
+                            app:layout_constraintTop_toTopOf="parent"/>
+                        <TextView
+                            android:id="@+id/describeContent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:text="描述性语言描述性语言描述性语言描述性语言描述性语言描述性语言描述性语言描述性语言描述性语言描述性语言描述性语言"
+                            app:layout_constraintTop_toBottomOf="@id/describeTitle"
+                            android:maxLines="2"
+                            android:ellipsize="end"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginTop="8dp"
+                    android:alpha="0.4"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="发表评论"
-                    android:textSize="20sp"
-                    android:background="@drawable/comment_bg"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingEnd="18dp"
-                    android:paddingStart="18dp" />
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="评论"
+                    android:textSize="18sp"
+                    android:layout_marginStart="20dp"/>
 
-                <Button
-                    android:id="@+id/release_button"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="发表"
-                    android:textSize="16sp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/release_button_bg"
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="12dp"
-                    />
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/release_comment"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="wrap_content"
+                        android:hint="发表评论"
+                        android:textSize="20sp"
+                        android:background="@drawable/comment_bg"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:paddingEnd="18dp"
+                        android:paddingStart="18dp" />
+
+                    <Button
+                        android:id="@+id/release_button"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="发表"
+                        android:textSize="16sp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/release_button_bg"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+                <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                    android:id="@+id/smart_refresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.scwang.smart.refresh.footer.ClassicsFooter
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/comment_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:overScrollMode="never"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"/>
+
+                    <com.scwang.smart.refresh.footer.ClassicsFooter
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
 
+        </androidx.core.widget.NestedScrollView>
 
-            <com.scwang.smart.refresh.layout.SmartRefreshLayout
-                android:id="@+id/smart_refresh"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.scwang.smart.refresh.footer.ClassicsFooter
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/comment_recycler_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:overScrollMode="never"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"/>
-
-                <com.scwang.smart.refresh.footer.ClassicsFooter
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-            </com.scwang.smart.refresh.layout.SmartRefreshLayout>
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
 
 
     </androidx.core.widget.NestedScrollView>

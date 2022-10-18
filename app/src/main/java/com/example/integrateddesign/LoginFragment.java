@@ -19,10 +19,7 @@ import com.example.common.bean.UserBean;
 import com.example.common.constants.HttpConstants;
 import com.example.common.util.FragmentStackUtil;
 import com.example.common.util.MyToast;
-import com.example.picshare.MainFragment;
-import com.example.picshare.R;
 import com.example.picshare.databinding.FragmentLoginBinding;
-import com.example.picshare.register.RegisterFragment;
 
 import java.util.Objects;
 
