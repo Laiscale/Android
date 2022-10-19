@@ -28,14 +28,13 @@ public class LoginViewModel extends ViewModel {
         retrofitService.userLogin(username, password).enqueue(new retrofit2.Callback<RetrofitResponse<UserBean>>() {
             @Override
             public void onResponse(@NonNull Call<RetrofitResponse<UserBean>> call, @NonNull Response<RetrofitResponse<UserBean>> response) {
-                Log.e("wgw", "onResponse: "  + "asdasd");
                 if (response.body() == null) return;
                 _loginRes.setValue(response.body());
             }
 
             @Override
             public void onFailure(@NonNull Call<RetrofitResponse<UserBean>> call, @NonNull Throwable t) {
-                Log.e("wgw", "onResponse: "  + "222222222222222222" + t.getMessage());
+                
             }
         });
     }
