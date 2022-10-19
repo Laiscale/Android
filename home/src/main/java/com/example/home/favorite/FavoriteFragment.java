@@ -17,6 +17,10 @@ import com.example.common.MyApp;
 import com.example.common.adapter.PicRecyclerViewAdapter;
 import com.example.common.bean.PictureData;
 import com.example.common.bean.ResponseData;
+import com.example.common.listener.OnItemClickListener;
+import com.example.common.listener.RecyclerViewItemListener;
+import com.example.common.ui.details.PicDetailsFragment;
+import com.example.common.util.FragmentStackUtil;
 import com.example.home.R;
 import com.example.home.databinding.FragmentFavoriteBinding;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
@@ -58,9 +62,8 @@ public class FavoriteFragment extends Fragment {
         viewBinding.smartRefresh.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                if (viewModel.isHasMore()){
-                    viewModel.getFavoritePicList(viewModel.getCurrentPage() + 1, 10, MyApp.getUserBean().id);
-                }
+                viewModel.getFavoritePicList(viewModel.getCurrentPage() + 1, 10, MyApp.getUserBean().id);
+                viewBinding.smartRefresh.finishRefresh();
             }
         });
 
@@ -69,6 +72,9 @@ public class FavoriteFragment extends Fragment {
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 if (viewModel.isHasMore()){
                     viewModel.getFavoritePicList(viewModel.getCurrentPage() + 1, 10, MyApp.getUserBean().id);
+                }else {
+                    // 如果没有更多，停止加载动画
+                    viewBinding.smartRefresh.finishLoadMore();
                 }
             }
         });
@@ -83,9 +89,11 @@ public class FavoriteFragment extends Fragment {
                 if (pictureDataResponseData == null) return;
                 if (!pictureDataResponseData.records.isEmpty()){
                     if (viewModel.getCurrentPage() == 1){
+                        int size = pictureDataList.size();
+                        pictureDataList.clear();
                         pictureDataList.addAll(0, pictureDataResponseData.records);
                         // 通知刷新
-                        recyclerViewAdapter.notifyItemRangeChanged(0, pictureDataResponseData.size);
+                        recyclerViewAdapter.notifyItemRangeChanged(0, size);
                     }else {
                         pictureDataList.addAll(pictureDataResponseData.records);
                         // 通知刷新
@@ -94,6 +102,19 @@ public class FavoriteFragment extends Fragment {
                 }
             }
         });
+
+        viewBinding.favoriteRecyclerView.addOnItemTouchListener(new RecyclerViewItemListener(requireContext(), viewBinding.favoriteRecyclerView, new OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                // 跳转到详情页
+                FragmentStackUtil.addToMainFragment(requireActivity().getSupportFragmentManager(), PicDetailsFragment.newInstance(pictureDataList.get(position)), "PicDetail_Fragment_Tag", true, "PicDetail_Fragment");
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        }));
         return viewBinding.getRoot();
     }
 }

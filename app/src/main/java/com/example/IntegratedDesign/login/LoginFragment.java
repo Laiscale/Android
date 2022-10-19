@@ -1,4 +1,4 @@
-package com.example.IntegratedDesign;
+package com.example.IntegratedDesign.login;
 
 import android.os.Bundle;
 
@@ -10,13 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.IntegratedDesign.databinding.FragmentLoginBinding;
 import com.example.common.MyApp;
 import com.example.common.bean.RetrofitResponse;
 import com.example.common.bean.UserBean;
 import com.example.common.constants.HttpConstants;
 import com.example.common.util.FragmentStackUtil;
 import com.example.common.util.MyToast;
+import com.example.IntegratedDesign.MainFragment;
+import com.example.IntegratedDesign.databinding.FragmentLoginBinding;
+import com.example.IntegratedDesign.register.RegisterFragment;
 
 public class LoginFragment extends Fragment {
     private FragmentLoginBinding viewBinding;

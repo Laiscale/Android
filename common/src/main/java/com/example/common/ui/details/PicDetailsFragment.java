@@ -324,6 +324,7 @@ public class PicDetailsFragment extends Fragment {
 
     @SuppressLint("SimpleDateFormat")
     private void updateViewDisplay() {
+        if (pictureData == null) return;
         viewBinding.detailUserName.setText(pictureData.username);
         viewBinding.describeTitle.setText(pictureData.title);
         viewBinding.describeContent.setText(pictureData.content);

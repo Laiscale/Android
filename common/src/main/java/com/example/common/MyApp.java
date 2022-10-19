@@ -15,4 +15,3 @@ public class MyApp extends Application {
         MyApp.userBean = userBean;
     }
 }
-

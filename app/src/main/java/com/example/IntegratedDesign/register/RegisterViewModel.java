@@ -1,4 +1,4 @@
-package com.example.IntegratedDesign;
+package com.example.IntegratedDesign.register;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;

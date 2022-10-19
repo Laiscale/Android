@@ -3,6 +3,7 @@ package com.example.IntegratedDesign;
 import android.os.Bundle;
 
 import com.example.IntegratedDesign.databinding.ActivityContainerBinding;
+import com.example.IntegratedDesign.login.LoginFragment;
 import com.example.common.util.ActivityUtil;
 import com.example.common.util.FragmentStackUtil;
 import androidx.appcompat.app.AppCompatActivity;

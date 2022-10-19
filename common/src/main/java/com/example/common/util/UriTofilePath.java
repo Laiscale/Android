@@ -28,7 +28,6 @@ public class UriTofilePath {
      * @param context
      * @param imageUri
      */
-    //网上借鉴
     public static String getFileAbsolutePath(Context context, Uri imageUri) {
         if (context == null || imageUri == null) {
             return null;
