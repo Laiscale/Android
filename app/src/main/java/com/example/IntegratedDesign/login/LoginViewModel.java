@@ -34,7 +34,6 @@ public class LoginViewModel extends ViewModel {
 
             @Override
             public void onFailure(@NonNull Call<RetrofitResponse<UserBean>> call, @NonNull Throwable t) {
-                
             }
         });
     }
